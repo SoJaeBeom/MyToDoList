@@ -32,10 +32,12 @@ export default function Todo({ todolist, setStatusToggle }) {
   } else {
     return todolist.map((todo, index) => (
       <div className="todo" key={index} data-key={todo.id}>
-        <h1>{todo.title}</h1>
-        <h1>{todo.body}</h1>
-        <button onClick={onDeleteHandler}>삭제하기</button>
-        <button onClick={onToggleHandler}>
+        <h2>{todo.title}</h2>
+        <div>{todo.body}</div>
+        <button className="delete_btn" onClick={onDeleteHandler}>
+          삭제하기
+        </button>
+        <button className="toggle_btn" onClick={onToggleHandler}>
           {todo.isDone === false ? '완료' : '취소'}
         </button>
       </div>

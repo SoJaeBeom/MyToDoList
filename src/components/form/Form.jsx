@@ -31,11 +31,21 @@ export default function Form({ setTodoList, todolist }) {
 
   return (
     <div className="form">
-      <label>제목</label>
-      <input type="text" id="title" onChange={onChangeHandler} value={title} />
-      <label>내용</label>
-      <input type="text" id="body" onChange={onChangeHandler} value={body} />
-      <button onClick={onSubmitHandler}>추가하기</button>
+      <div className="input_group">
+        <label className="title_label">제목</label>
+        <input
+          type="text"
+          id="title"
+          onChange={onChangeHandler}
+          value={title}
+        />
+        <label className="body_label">내용</label>
+        <input type="text" id="body" onChange={onChangeHandler} value={body} />
+      </div>
+
+      <button id="add_btn" onClick={onSubmitHandler}>
+        추가하기
+      </button>
     </div>
   )
 }

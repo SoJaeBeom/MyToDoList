@@ -1,6 +1,28 @@
 .todo {
-  width: 200px;
-  height: 200px;
+  width: 300px;
   border: 5px solid royalblue;
-  border-radius: 10px;
+  border-radius: 12px;
+  padding: 12px 24px 24px;
+}
+
+.toggle_btn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 50%;
+  background-color: #fff;
+  border: 2px solid royalblue;
+  margin-top: 24px;
+}
+
+.delete_btn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 40px;
+  width: 50%;
+  background-color: #fff;
+  border: 2px solid red;
+  margin-top: 24px;
 }

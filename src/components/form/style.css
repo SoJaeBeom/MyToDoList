@@ -4,4 +4,52 @@
   justify-content: space-between;
   margin: 0 auto;
   padding: 30px;
+
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.input_group {
+  align-items: center;
+display: flex;
+gap: 20px;  
+}
+
+
+
+#add_btn {
+  background-color: royalblue;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  height: 40px;
+  width: 140px;
+}
+
+.title_label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#title {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  padding: 0 12px;
+  width: 240px;
+}
+
+.body_label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#body {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  padding: 0 12px;
+  width: 240px;
 }
