@@ -4,17 +4,21 @@ import React, { useState } from 'react'
 export default function Form({ setTodoList, todolist }) {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
+  const [id, setId] = useState(1)
 
   function onSubmitHandler() {
+    setId(id + 1)
     setTodoList([
       ...todolist,
       {
-        id: todolist.length + 1,
+        id,
         title,
         body,
         isDone: false,
       },
     ])
+    setTitle('')
+    setBody('')
   }
 
   const onChangeHandler = (event) => {
