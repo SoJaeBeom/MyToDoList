@@ -7,7 +7,8 @@ export default function Form({ setTodoList, todolist }) {
   const [id, setId] = useState(1)
 
   function onSubmitHandler() {
-    setId(id + 1)
+    setId((id) => id + 1)
+
     setTodoList([
       ...todolist,
       {
@@ -17,6 +18,7 @@ export default function Form({ setTodoList, todolist }) {
         isDone: false,
       },
     ])
+
     setTitle('')
     setBody('')
   }

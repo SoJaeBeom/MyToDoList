@@ -12,7 +12,7 @@ export default function Layout() {
     <div className="layout">
       <Header />
       <Form setTodoList={setTodoList} todolist={todolist} />
-      <List todolist={todolist} />
+      <List setTodoList={setTodoList} todolist={todolist} />
     </div>
   )
 }
