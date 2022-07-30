@@ -1,5 +1,5 @@
 import Todo from '../todo/Todo'
-import './style.css'
+import styled from 'styled-components'
 
 export default function List({ setTodoList, todolist }) {
   let array_false = todolist
@@ -39,12 +39,22 @@ export default function List({ setTodoList, todolist }) {
   }
 
   return (
-    <div className="list">
-      <h1>Working...🔥🔥🔥</h1>
-      <div className="list_wrapper">{array_false}</div>
+    <ListContainer className="list">
+      <ListTitle>Working...🔥🔥🔥</ListTitle>
+      <ListWrapper className="list_wrapper">{array_false}</ListWrapper>
 
-      <h1>Done...🎉🎉🎉</h1>
-      <div className="list_wrapper">{array_true}</div>
-    </div>
+      <ListTitle>Done...🎉🎉🎉</ListTitle>
+      <ListWrapper className="list_wrapper">{array_true}</ListWrapper>
+    </ListContainer>
   )
 }
+
+const ListContainer = styled.div``
+
+const ListTitle = styled.h1``
+
+const ListWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`
