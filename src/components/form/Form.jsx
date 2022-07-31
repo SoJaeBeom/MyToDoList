@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { addTodo } from '../../redux/modules/todos'
 
-export default function Form({ setTodoList, todolist }) {
+export default function Form() {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
-  const [id, setId] = useState(1)
+
+  const dispatch = useDispatch()
 
   function onSubmitHandler() {
-    setId((id) => id + 1)
+    if (title !== '' && body !== '') {
+      dispatch(
+        addTodo({
+          title: title,
+          body: body,
+        }),
+      )
 
-    setTodoList([
-      ...todolist,
-      {
-        id,
-        title,
-        body,
-        isDone: false,
-      },
-    ])
-
-    setTitle('')
-    setBody('')
+      setTitle('')
+      setBody('')
+    }
   }
 
   const onChangeHandler = (event) => {

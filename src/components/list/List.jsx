@@ -1,50 +1,29 @@
 import Todo from '../todo/Todo'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
-export default function List({ setTodoList, todolist }) {
-  let array_false = todolist
-    .filter((todolist) => todolist.isDone === false)
-    .map((todo, index) => {
-      return (
-        <Todo
-          todo={todo}
-          key={index}
-          onToggleHandler={onToggleHandler}
-          onDeleteHandler={onDeleteHandler}
-        />
-      )
+export default function List() {
+  const newTodo = useSelector((state) => state.todos)
+
+  let array_false = newTodo
+    .filter((todos) => todos.isDone === false)
+    .map((todo) => {
+      return <Todo todo={todo} key={todo.id} />
     })
 
-  let array_true = todolist
-    .filter((todolist) => todolist.isDone === true)
-    .map((todo, index) => {
-      return (
-        <Todo
-          todo={todo}
-          key={index}
-          onToggleHandler={onToggleHandler}
-          onDeleteHandler={onDeleteHandler}
-        />
-      )
+  let array_true = newTodo
+    .filter((todos) => todos.isDone === true)
+    .map((todo) => {
+      return <Todo todo={todo} key={todo.id} />
     })
-
-  function onToggleHandler(todo) {
-    todo.isDone === false ? (todo.isDone = true) : (todo.isDone = false)
-    setTodoList([...todolist])
-  }
-
-  function onDeleteHandler(todo) {
-    let deleteArray = todolist.filter((delTodo) => delTodo.id !== todo.id)
-    setTodoList([...deleteArray])
-  }
 
   return (
-    <ListContainer className="list">
+    <ListContainer>
       <ListTitle>Working...🔥🔥🔥</ListTitle>
-      <ListWrapper className="list_wrapper">{array_false}</ListWrapper>
+      <ListWrapper>{array_false}</ListWrapper>
 
       <ListTitle>Done...🎉🎉🎉</ListTitle>
-      <ListWrapper className="list_wrapper">{array_true}</ListWrapper>
+      <ListWrapper>{array_true}</ListWrapper>
     </ListContainer>
   )
 }

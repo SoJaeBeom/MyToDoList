@@ -1,22 +1,27 @@
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { deleteTodo, toggleStatusTodo } from '../../redux/modules/todos'
 
-export default function Todo({ todo, onDeleteHandler, onToggleHandler }) {
-  function onDeleteBtn() {
-    onDeleteHandler(todo)
+export default function Todo({ todo }) {
+  const dispatch = useDispatch()
+
+  function onToggleHandler(id) {
+    dispatch(toggleStatusTodo(id))
   }
 
-  function onToggleBtn() {
-    onToggleHandler(todo)
+  function onDeleteHandler(id) {
+    dispatch(deleteTodo(id))
   }
+
   return (
     <TodoContainer>
       <TodoTitle>{todo.title}</TodoTitle>
       <TodoBody>{todo.body}</TodoBody>
       <ButtonContainer>
-        <Button className="delete_btn" onClick={onDeleteBtn}>
+        <Button className="delete_btn" onClick={() => onDeleteHandler(todo.id)}>
           삭제하기
         </Button>
-        <Button className="toggle_btn" onClick={onToggleBtn}>
+        <Button className="toggle_btn" onClick={() => onToggleHandler(todo.id)}>
           {todo.isDone === false ? '완료' : '취소'}
         </Button>
       </ButtonContainer>
