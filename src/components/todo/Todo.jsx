@@ -25,9 +25,9 @@ export default function Todo({ todo }) {
         <Button className="toggle_btn" onClick={() => onToggleHandler(todo.id)}>
           {todo.isDone === false ? '완료' : '취소'}
         </Button>
-        <Link to={`/${todo.id}`} className="detail_btn">
+        <StyledLink to={`/${todo.id}`} className="detail_btn">
           자세히
-        </Link>
+        </StyledLink>
       </ButtonContainer>
     </TodoContainer>
   )
@@ -60,4 +60,16 @@ const Button = styled.button`
   margin-top: 24px;
   border: ${(props) =>
     props.className === 'toggle_btn' ? '2px solid royalblue' : '2px solid red'};
+`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  width: 40%;
+  text-align: center;
+  padding: 10px;
+  margin-top: 24px;
+  border: 2px solid green;
+  border-radius: 8px;
 `
