@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { deleteTodo, toggleStatusTodo } from '../../redux/modules/todos'
 
@@ -24,6 +25,9 @@ export default function Todo({ todo }) {
         <Button className="toggle_btn" onClick={() => onToggleHandler(todo.id)}>
           {todo.isDone === false ? '완료' : '취소'}
         </Button>
+        <Link to={`/${todo.id}`} className="detail_btn">
+          자세히
+        </Link>
       </ButtonContainer>
     </TodoContainer>
   )

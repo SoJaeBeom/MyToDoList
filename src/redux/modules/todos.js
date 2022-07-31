@@ -1,7 +1,6 @@
 export const ADD_TODO = 'todos/ADD_TODO'
 export const DELETE_TODO = 'todos/DELETE_TODO'
 export const TOGGLE_STATUS_TODO = 'todos/TOGGLE_STATUS_TODO'
-export const GET_TODO_BY_ID = 'todos/GET_TODO_BY_ID'
 
 let nextId = 1
 export function addTodo(newTodo) {
@@ -30,12 +29,6 @@ export function toggleStatusTodo(targetId) {
   }
 }
 
-export function getTodoById() {
-  return {
-    type: GET_TODO_BY_ID,
-  }
-}
-
 const initialState = []
 
 export default function todos(previousState = initialState, action) {
@@ -50,10 +43,6 @@ export default function todos(previousState = initialState, action) {
       return previousState.map((todo) =>
         todo.id === action.targetId ? { ...todo, isDone: !todo.isDone } : todo,
       )
-
-    case GET_TODO_BY_ID:
-      console.log('GET_TODO_BY_ID 진행할거야!!')
-      return ''
 
     default:
       return previousState
