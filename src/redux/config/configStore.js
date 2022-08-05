@@ -1,12 +1,12 @@
-import { createStore } from 'redux'
-import { combineReducers } from 'redux'
-import todos from '../modules/todos'
-import details from '../modules/details'
+import todoReducer from "../modules/todoSlice";
+import detailReducer from "../modules/detailSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
-const rootReducer = combineReducers({
-  todos,
-  details,
-})
-const store = createStore(rootReducer)
+const store = configureStore({
+  reducer: {
+    todoSlice: todoReducer,
+    detailSlice: detailReducer,
+  },
+});
 
-export default store
+export default store;

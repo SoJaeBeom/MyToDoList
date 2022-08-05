@@ -1,21 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-import { getTodoById } from '../redux/modules/details'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { getTodoById } from "../redux/modules/detailSlice";
 
 export default function Detail() {
-  let params = useParams()
-  const dispatch = useDispatch()
+  let { id } = useParams();
+  let todos = useSelector((state) => state.todoSlice);
+
+  const dispatch = useDispatch();
 
   dispatch(
-    getTodoById(
-      parseInt(params.id),
-      useSelector((state) => state.todos),
-    ),
-  )
+    getTodoById({
+      id,
+      todos,
+    })
+  );
 
-  const details = useSelector((state) => state.details)
+  const details = useSelector((state) => state.detailSlice);
 
   return (
     <DetailContainer>
@@ -26,7 +28,7 @@ export default function Detail() {
         <StyledLink to="/">뒤로가기</StyledLink>
       </DetailsContent>
     </DetailContainer>
-  )
+  );
 }
 
 const DetailContainer = styled.div`
@@ -35,7 +37,7 @@ const DetailContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const DetailsContent = styled.div`
   width: 600px;
@@ -45,13 +47,13 @@ const DetailsContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-`
+`;
 
-const DetailId = styled.h3``
+const DetailId = styled.h3``;
 
-const DetailTitle = styled.h1``
+const DetailTitle = styled.h1``;
 
-const DetailBody = styled.h2``
+const DetailBody = styled.h2``;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -64,4 +66,4 @@ const StyledLink = styled(Link)`
   margin-left: 477px;
   border: 2px solid black;
   border-radius: 8px;
-`
+`;

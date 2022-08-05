@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export default function Header() {
   return (
@@ -6,7 +6,7 @@ export default function Header() {
       <HeaderContent>My Todo List</HeaderContent>
       <HeaderContent>React</HeaderContent>
     </HeaderContainer>
-  )
+  );
 }
 
 const HeaderContainer = styled.div`
@@ -16,5 +16,5 @@ const HeaderContainer = styled.div`
   height: 50px;
   justify-content: space-between;
   padding: 0 20px;
-`
-const HeaderContent = styled.div``
+`;
+const HeaderContent = styled.div``;

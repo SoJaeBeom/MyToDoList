@@ -1,17 +1,17 @@
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { deleteTodo, toggleStatusTodo } from '../../redux/modules/todos'
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { deleteTodo, toggleTodo } from "../../redux/modules/todoSlice";
 
 export default function Todo({ todo }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   function onToggleHandler(id) {
-    dispatch(toggleStatusTodo(id))
+    dispatch(toggleTodo(id));
   }
 
   function onDeleteHandler(id) {
-    dispatch(deleteTodo(id))
+    dispatch(deleteTodo(id));
   }
 
   return (
@@ -23,14 +23,14 @@ export default function Todo({ todo }) {
           삭제하기
         </Button>
         <Button className="toggle_btn" onClick={() => onToggleHandler(todo.id)}>
-          {todo.isDone === false ? '완료' : '취소'}
+          {todo.isDone === false ? "완료" : "취소"}
         </Button>
         <StyledLink to={`/${todo.id}`} className="detail_btn">
           자세히
         </StyledLink>
       </ButtonContainer>
     </TodoContainer>
-  )
+  );
 }
 
 const TodoContainer = styled.div`
@@ -38,17 +38,17 @@ const TodoContainer = styled.div`
   border: 5px solid royalblue;
   border-radius: 12px;
   padding: 12px 24px 24px;
-`
+`;
 
-const TodoTitle = styled.h2``
+const TodoTitle = styled.h2``;
 
-const TodoBody = styled.div``
+const TodoBody = styled.div``;
 
 const ButtonContainer = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 24px;
-`
+`;
 
 const Button = styled.button`
   border: none;
@@ -59,8 +59,8 @@ const Button = styled.button`
   background-color: #fff;
   margin-top: 24px;
   border: ${(props) =>
-    props.className === 'toggle_btn' ? '2px solid royalblue' : '2px solid red'};
-`
+    props.className === "toggle_btn" ? "2px solid royalblue" : "2px solid red"};
+`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -72,4 +72,4 @@ const StyledLink = styled(Link)`
   margin-top: 24px;
   border: 2px solid green;
   border-radius: 8px;
-`
+`;
